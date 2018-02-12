@@ -1,0 +1,15 @@
+{
+  "name": "hi-redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "redux": "^3.7.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wk <somnuk.wk@gmail.com> (https://github.com/wk-j)",
+  "license": "ISC"
+}
