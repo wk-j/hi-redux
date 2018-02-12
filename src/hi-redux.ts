@@ -15,14 +15,10 @@ function counter(state = 0, action: Action) {
     }
 }
 
-let store = createStore(counter);
+let store = createStore(counter)
 
 store.dispatch({ type: "Increment" })
 store.dispatch({ type: "Increment" })
 store.dispatch({ type: "Increment" })
-store.dispatch({ type: "Increment" })
-store.dispatch({ type: "Increment" })
-store.dispatch({ type: "Increment" })
-store.dispatch({ type: "Decrement" })
 
-console.log(store.getState());
+console.log(store.getState() === 3)

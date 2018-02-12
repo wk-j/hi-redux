@@ -22,5 +22,6 @@ let store = createStore<number>(counter, applyMiddleware(thunk))
 store.dispatch((dp) => dp({ type: "Increment" }))
 store.dispatch((dp) => dp({ type: "Increment" }))
 store.dispatch((dp) => dp({ type: "Increment" }))
+store.dispatch((dp) => dp({ type: "Decrement" }))
 
-console.log(store.getState());
+console.log(store.getState() === 2)

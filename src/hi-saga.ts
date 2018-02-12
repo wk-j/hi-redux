@@ -44,7 +44,8 @@ const action = (act: Action) => store.dispatch(act)
 action({ type: "IncrementAsync" })
 action({ type: "IncrementAsync" })
 action({ type: "IncrementAsync" })
+action({ type: "Decrement" })
 
 setTimeout(() => {
-    console.log(store.getState())
+    console.log(store.getState() === 2)
 }, 1000);
