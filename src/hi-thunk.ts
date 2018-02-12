@@ -1,6 +1,6 @@
-import thunk from "redux-thunk"
 import { createStore } from "redux"
 import { applyMiddleware } from "redux";
+import thunk from "redux-thunk"
 
 type Action =
     | { type: "Increment" }
@@ -18,7 +18,6 @@ function counter(state = 0, action: Action) {
 }
 
 let store = createStore<number>(counter, applyMiddleware(thunk))
-
 
 store.dispatch((dp) => dp({ type: "Increment" }))
 store.dispatch((dp) => dp({ type: "Increment" }))
