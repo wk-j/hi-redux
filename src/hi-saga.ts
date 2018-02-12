@@ -6,18 +6,19 @@ import { put } from "redux-saga/effects"
 
 // saga
 export function* incrementAsync() {
-    yield delay(1000)
-    yield put({ type: "Increment" });
+    yield delay(100)
+    yield put({ type: "Increment" })
 }
 
 export default function* rootSaga() {
-    yield takeEvery("INCREMENT_ASYNC", incrementAsync)
+    yield takeEvery("IncrementAsync", incrementAsync)
 }
 
 // reducers
 type Action =
     | { type: "Increment" }
     | { type: "Decrement" }
+    | { type: "IncrementAsync" }
 
 function counter(state = 0, act: Action) {
     switch (act.type) {
@@ -26,21 +27,24 @@ function counter(state = 0, act: Action) {
         }
         case "Decrement": {
             return state - 1
+        } default: {
+            return state
         }
     }
 }
 
 // store
 const sagaMiddleware = createSagaMiddleware()
-let store = createStore(counter, applyMiddleware(sagaMiddleware));
+let store = createStore(counter, applyMiddleware(sagaMiddleware))
 
 sagaMiddleware.run(rootSaga)
 
-const action = (act: Action) => store.dispatch(act);
+const action = (act: Action) => store.dispatch(act)
 
-action({ type: "Increment" });
-action({ type: "Decrement" });
-action({ type: "Decrement" });
-action({ type: "Decrement" });
+action({ type: "IncrementAsync" })
+action({ type: "IncrementAsync" })
+action({ type: "IncrementAsync" })
 
-console.log(store.getState());
+setTimeout(() => {
+    console.log(store.getState())
+}, 1000);
